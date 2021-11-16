@@ -1,6 +1,5 @@
 
 version: 2.1
-
 jobs:
   
 #   create_and_deploy_front_end:
@@ -34,11 +33,13 @@ jobs:
             aws cloudformation \
             list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
             --no-paginate --output text > ~/textfile.txt
+
       - persist_to_workspace:
           root: ~/
           paths: 
             - textfile.txt 
+
 workflows:
-  Persist:
-    jobs:
-      -get_last_deplyment_id
+    Create:
+      jobs:
+        - get_last_deployment_id
