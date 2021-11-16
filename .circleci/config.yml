@@ -1,7 +1,7 @@
 
 version: 2.1
 
-# jobs:
+jobs:
   
 #   create_and_deploy_front_end:
 #     docker:
